@@ -24,6 +24,7 @@ public class MySQliteOpenHelper extends SQLiteOpenHelper {
             +" starttime date, "
             +" charge boolean,"
             +" knowsitu boolean)";
+    public static final String Create_news = "create table News(id Integer primary key autoincrement,title varchar(32),content varchar(32))";
     public MySQliteOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DB_NAME, null, DATABASE_VERSION);
     }
@@ -32,6 +33,7 @@ public class MySQliteOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(Create_doc);
         sqLiteDatabase.execSQL(Create_Item);
+        sqLiteDatabase.execSQL(Create_news);
     }
 
     @Override

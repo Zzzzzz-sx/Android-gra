@@ -3,12 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".docfragment.DocSearchFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DocSearchFragment" />
-
+        android:background="@drawable/edittext_style"
+        android:hint="点击此处搜索"
+        ></EditText>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_doc_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
+
+
+
+
+
+
+
