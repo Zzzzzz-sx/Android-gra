@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="spinner_sex">请选择性别</string>
+    <string name="spinner_docname">请选择医生</string>
+    <string name="spinner_itemname">请选择项目名称</string>
+    <string name="spinner_charge">是否已缴费</string>
+    <string name="spinner_inform">是否了解手术须知</string>
+    <array name="sex">
+        <item>请选择性别</item>
+        <item>男</item>
+        <item>女</item>
+    </array>
+    <array name="docname">
+        <item>请选择医生姓名</item>
+        <item>医生一</item>
+        <item>医生二</item>
+        <item>医生三</item>
+        <item>医生四</item>
+    </array>
+    <array name="item">
+        <item>请选择项目类型</item>
+        <item>光子嫩肤</item>
+        <item>黄金微针</item>
+        <item>水光针</item>
+        <item>射频</item>
+        <item>点阵激光</item>
+    </array>
+    <array name="charge">
+        <item>是否已完成缴费</item>
+        <item>已缴费</item>
+        <item>未缴费</item>
+    </array>
+    <array name="inform">
+        <item>是否了解手术须知</item>
+        <item>未了解</item>
+        <item>已了解并签署知情同意书</item>
+    </array>
+</resources>

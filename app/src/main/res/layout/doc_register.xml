@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Register_doc">
+
+    <EditText
+        android:id="@+id/et_reg_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="在此处输入账号"
+        android:inputType="text"
+        android:ems="10"
+        android:layout_gravity="center"
+        android:textAlignment="center"></EditText>
+    <EditText
+        android:id="@+id/et_reg_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="在此处输入密码"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_gravity="center"
+        android:textAlignment="center"></EditText>
+    <Button
+        android:id="@+id/btn_doc_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="docterreg"
+        android:text="点击注册"
+        android:layout_gravity="center"></Button>
+
+</LinearLayout>

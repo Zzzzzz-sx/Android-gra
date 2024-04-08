@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:context=".Login_doc">
+
+    <EditText
+        android:id="@+id/et_login_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="在此处输入账号"
+        android:inputType="text"
+        android:ems="10"
+        android:layout_gravity="center"
+        android:textAlignment="center"></EditText>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            ></TextView>
+        <EditText
+            android:layout_weight="0.78"
+            android:id="@+id/et_login_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="在此处输入密码"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:layout_gravity="center"
+            android:textAlignment="center"></EditText>
+        <Button
+            android:id="@+id/btn_doc_forget"
+            android:layout_weight="0.75"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="docforget"
+            android:text="忘记密码"
+            ></Button>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_doc_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="docterlogin"
+        android:text="登录"
+        android:layout_gravity="center"></Button>
+    <Button
+        android:id="@+id/btn_doc_to_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="logintoreg"
+        android:text="注册"
+        android:layout_gravity="center"></Button>
+
+</LinearLayout>
