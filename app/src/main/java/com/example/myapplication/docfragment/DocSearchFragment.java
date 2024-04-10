@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -28,7 +30,9 @@ public class DocSearchFragment extends DocBaseFragment {
     private MySQliteOpenHelper dbHelper;
     HistoryRecycleAdapter historyAdapter;
     RecyclerView recyclerView;
-    String charge,knowsitu;
+    String charge,knowsitu,searchcontent;
+    EditText et_search;
+    Button btn_search;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,18 +41,32 @@ public class DocSearchFragment extends DocBaseFragment {
     }
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        //--------------------------展示历史项目
         showhistory();
+        //recyclerview配置 布局管理 适配器
         recyclerView = getActivity().findViewById(R.id.rv_doc_history);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
         historyAdapter = new HistoryRecycleAdapter(Hisproject);
         recyclerView.setAdapter(historyAdapter);
+        //recyclerview的分隔下划线设置
         DividerItemDecoration divider = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(new ColorDrawable(Color.BLACK));
         recyclerView.addItemDecoration(divider);
 
+        //--------------------------搜索功能实现
+        et_search = getActivity().findViewById(R.id.et_item_search);
+        btn_search = getActivity().findViewById(R.id.btn_item_search);
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchcontent = et_search.getText().toString();
+                Log.d("DocSearchFragment","搜索内容"+searchcontent);
+            }
+        });
 
     }
+
     private void showhistory(){
         dbHelper = new MySQliteOpenHelper(getActivity(),"Docinfo.db",null,3);
         SQLiteDatabase db = dbHelper.getWritableDatabase();

@@ -8,11 +8,20 @@
 
     <!-- TODO: Update blank fragment layout -->
     <EditText
+        android:id="@+id/et_item_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/edittext_style"
-        android:hint="点击此处搜索"
+        android:hint="点击此处输入"
+        android:textAlignment="center"
         ></EditText>
+    <Button
+        android:id="@+id/btn_item_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="搜索"
+        android:layout_gravity="center"
+        android:onClick="Item_search"></Button>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_doc_history"
         android:layout_width="match_parent"
