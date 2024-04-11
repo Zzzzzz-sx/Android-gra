@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,11 +46,12 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
     private MySQliteOpenHelper dbHelper;
     EditText createname,createage;
     TextView showcreatedate;
-    Button selectcreatedate,createitem;
+    Button selectcreatedate,createitem,uploadimage;
     Spinner sex,doctername,itemname,charge,inform;
     String str_name,getsex,getdocname,getitemname,getchargesitu,getinfo,strselectcreatedate;
     Integer age;
     boolean ifcharge=false,ifagree=false;
+    ImageView showimg1,showimg2,showimg3;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         dbHelper = new MySQliteOpenHelper(getActivity(),"Docinfo.db",null,3);
@@ -64,7 +66,14 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
         showcreatedate = getActivity().findViewById(R.id.tv_startdate);
         selectcreatedate = getActivity().findViewById(R.id.btn_selectdate);
         createitem = getActivity().findViewById(R.id.btn_createItem);
+        //找到上传图片按钮控件以及展示图片的ImageView控件
+        uploadimage = getActivity().findViewById(R.id.upload_button);
+        showimg1 = getActivity().findViewById(R.id.img_upload_1);
+        showimg2 = getActivity().findViewById(R.id.img_upload_2);
+        showimg3 = getActivity().findViewById(R.id.img_upload_3);
+        //时间选择器的按钮监听
         selectcreatedate.setOnClickListener(this);
+//        uploadimage.setOnClickListener(this);
 //        strselectcreatedate = showcreatedate.getText().toString();
 
 //        Integer int_age = Integer.parseInt(createage.getEditableText().toString());
@@ -147,7 +156,13 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
                 Toast.makeText(getActivity(),"未选择项目",Toast.LENGTH_SHORT).show();
             }
         });
+//        -----------------------上传图片的button响应事件
+        uploadimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
 //        -----------------------创建项目的button响应事件
         createitem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,6 +175,7 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
                 createitemtable();
             }
         });
+
 //        DatePickerDialog.OnDateSetListener startdatelis = new DatePickerDialog.OnDateSetListener() {
 //            @Override
 //            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
