@@ -3,13 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".docfragment.DochomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_Create_News"
+        android:onClick="Createnews"
+        android:layout_gravity="center"
+        android:text="创建文章"></Button>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_show_news"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textAlignment="center"
         >
     </androidx.recyclerview.widget.RecyclerView>
+
 </LinearLayout>

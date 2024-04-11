@@ -14,7 +14,6 @@ tools:context=".docfragment.DocSearchFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:orientation="horizontal">
         <TextView
             android:gravity="center"
@@ -172,7 +171,7 @@ tools:context=".docfragment.DocSearchFragment">
         <TextView
             android:gravity="center"
             android:layout_weight="1"
-            android:text="是否了解手术须知："
+            android:text="手术须知："
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView

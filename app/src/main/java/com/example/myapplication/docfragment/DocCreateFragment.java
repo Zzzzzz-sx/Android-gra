@@ -185,8 +185,10 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
 
 //        -----------------------向数据库中新建item表（插入相对应的值）
     public void createitemtable() {
+        //读取数据库
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues Item = new ContentValues();
+        //设置字段
         Item.put("name",str_name);
         Item.put("age",age);
         Item.put("sex",getsex);
@@ -195,11 +197,11 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
         Item.put("starttime",strselectcreatedate);
         Item.put("charge",ifcharge);
         Item.put("knowsitu",ifagree);
+        //插入数据库中
         db.insert("Item",null,Item);
         Toast.makeText(getActivity(),"创建成功！",Toast.LENGTH_SHORT).show();
         getActivity().finish();
         startActivity(new Intent(getActivity(), Doc_shouye.class));
-
     }
 
 }

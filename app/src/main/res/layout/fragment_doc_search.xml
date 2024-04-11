@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/edittext_style"
-        android:hint="点击此处输入"
+        android:hint="输入姓名进行搜索"
         android:textAlignment="center"
         ></EditText>
     <Button

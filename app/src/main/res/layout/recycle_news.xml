@@ -10,9 +10,9 @@
         android:id="@+id/tv_newstitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:gravity="center"
         android:textStyle="bold"
+        android:layout_marginBottom="10dp"
         ></TextView>
 
 </LinearLayout>

@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.myapplication.MySQliteOpenHelper;
 import com.example.myapplication.R;
@@ -36,6 +37,7 @@ public class DochomeFragment extends DocBaseFragment {
     private MySQliteOpenHelper dbHelper;
     NewsRecyclerAdapter newsAdapter;
     RecyclerView recyclerView;
+    Button createnews;
 
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -48,9 +50,15 @@ public class DochomeFragment extends DocBaseFragment {
         DividerItemDecoration divider = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(new ColorDrawable(Color.BLACK));
         recyclerView.addItemDecoration(divider);
+        createnews = getActivity().findViewById(R.id.btn_Create_News);
+        createnews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-
+            }
+        });
     }
+
     private void shownews(){
         dbHelper = new MySQliteOpenHelper(getActivity(),"Docinfo.db",null,3);
         SQLiteDatabase db = dbHelper.getWritableDatabase();

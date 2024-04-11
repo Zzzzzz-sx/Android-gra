@@ -1,5 +1,6 @@
 package com.example.myapplication.docfragment;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -12,12 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.Doc_shouye;
 import com.example.myapplication.MySQliteOpenHelper;
 import com.example.myapplication.R;
 
@@ -60,8 +63,47 @@ public class DocSearchFragment extends DocBaseFragment {
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //------------------------点击事件 点击后在原列表顶端显示（待定------>跳转到新的页面进行recyclerview的展示？）
                 searchcontent = et_search.getText().toString();
                 Log.d("DocSearchFragment","搜索内容"+searchcontent);
+                dbHelper = new MySQliteOpenHelper(getActivity(),"Docinfo.db",null,3);
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                Cursor cursor = db.query("Item",null,"name = ?",new String[]{searchcontent},null,null,null);
+                if (cursor.getCount()==0){
+                    cursor.close();
+                    Toast.makeText(getActivity(),"查询失败！姓名不存在！",Toast.LENGTH_SHORT).show();
+                    getActivity().finish();
+                    startActivity(new Intent(getActivity(), Doc_shouye.class));
+                }
+                if(cursor.moveToFirst()){
+                    do{
+                        Log.d("DocSearchFragment","项目数"+cursor.getCount());
+                        Log.d("DocSearchFragment","cursor successful");
+                        Integer id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
+                        String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
+                        Integer age = cursor.getInt(cursor.getColumnIndexOrThrow("age"));
+                        String sex = cursor.getString(cursor.getColumnIndexOrThrow("sex"));
+                        String itemname = cursor.getString(cursor.getColumnIndexOrThrow("itemname"));
+                        String doc = cursor.getString(cursor.getColumnIndexOrThrow("doc"));
+                        String starttime = cursor.getString(cursor.getColumnIndexOrThrow("starttime"));
+                        if(cursor.getInt(cursor.getColumnIndexOrThrow("charge"))==1){
+                            charge = "已缴费";
+                        }
+                        else if(cursor.getInt(cursor.getColumnIndexOrThrow("charge"))==0){
+                            charge = "未缴费";
+                        }
+                        if(cursor.getInt(cursor.getColumnIndexOrThrow("knowsitu"))==1){
+                            knowsitu = "已了解并签署知情通知书";
+                        }
+                        else if(cursor.getInt(cursor.getColumnIndexOrThrow("charge"))==0){
+                            charge = "未了解";
+                        }
+                        Historyproject history=new Historyproject(id,name,age,sex,itemname,doc,starttime,charge,knowsitu);
+                        Hisproject.add(history);
+                        historyAdapter.notifyItemInserted((cursor.getCount()-1));
+                    }while (cursor.moveToNext());
+                }
+                cursor.close();
             }
         });
 
@@ -93,11 +135,8 @@ public class DocSearchFragment extends DocBaseFragment {
                 else if(cursor.getInt(cursor.getColumnIndexOrThrow("charge"))==0){
                      charge = "未了解";
                 }
-//                 Integer charge = cursor.getInt(cursor.getColumnIndexOrThrow("charge"));
-//                 Integer knowsitu = cursor.getInt(cursor.getColumnIndexOrThrow("knowsitu"));
                  Historyproject history=new Historyproject(id,name,age,sex,itemname,doc,starttime,charge,knowsitu);
                  Hisproject.add(history);
-//                 Log.d("DocSearchFragment","cursor successful"+id+name);
             }while(cursor.moveToNext());
         }
         cursor.close();
