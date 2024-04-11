@@ -14,9 +14,12 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.docfragment.DocMineFragment;
+
 
 public class Login_doc extends AppCompatActivity {
     private MySQliteOpenHelper dbHelper;
+    String name1;
     @SuppressLint("MissingInflatedId")
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,8 +48,14 @@ public class Login_doc extends AppCompatActivity {
                 boolean success = logsuc(logname,logpw,db);
                 if (success){
                     Toast.makeText(Login_doc.this,"登录成功！",Toast.LENGTH_SHORT).show();
+//                    view.getContext().startActivity(new Intent(Login_doc.this,Doc_shouye.class));
+//                    DocMineFragment fragment = DocMineFragment.newInstance(logname);
                     finish();
-                    startActivity(new Intent(Login_doc.this,Doc_shouye.class));
+                    Intent intent =new Intent(Login_doc.this, Doc_shouye.class);
+                    intent.putExtra("name",name1);
+                    view.getContext().startActivity(intent);
+//                    startActivity(intent);
+
                 }
                 else{
                     Toast.makeText(Login_doc.this,"用户名或密码错误，请重新输入",Toast.LENGTH_SHORT).show();
@@ -69,6 +78,7 @@ public class Login_doc extends AppCompatActivity {
 //                Log.d("Register_doc","success2");
                 String username1 = cursor.getString(cursor.getColumnIndexOrThrow("docname"));
                 String userpw1 = cursor.getString(cursor.getColumnIndexOrThrow("docpw"));
+                name1 = cursor.getString(cursor.getColumnIndexOrThrow("name"));
 //                Log.d("Register_doc","username1="+username1);
                 result = username1.equals(username)&&userpw1.equals(userpw);
 //                Log.d("Register_doc","equal="+result);

@@ -2,8 +2,10 @@ package com.example.myapplication;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -40,11 +42,16 @@ public class Doc_shouye extends AppCompatActivity implements View.OnClickListene
     private DocMineFragment mdocMineFragment;
     private DochomeFragment mdochomeFragment;
     private FragmentManager mFragmentManager;
+    String nameget;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doc_shouye);
+        Intent intent = getIntent();
+        if(intent != null){
+            nameget = intent.getStringExtra("name");
+        }
         //初始化函数
         initview();
     }
@@ -52,6 +59,7 @@ public class Doc_shouye extends AppCompatActivity implements View.OnClickListene
     private void initview() {
         //链接SQLliteStudio
         SQLiteStudioService.instance().start(this);
+
         //初始化界面 进入首页
         mtvHome = findViewById(R.id.Tv_img_home);
         mtvtabHome = findViewById(R.id.Tv_tab_home);
@@ -78,12 +86,18 @@ public class Doc_shouye extends AppCompatActivity implements View.OnClickListene
         rlMine.setOnClickListener(this);
         //创建fragment
         mdochomeFragment = new DochomeFragment();
+//        Bundle bundle = new Bundle();
+//        bundle.putString("name",nameget);
+//        Log.d("Doc_shouye","shouye name"+nameget);
+//        mdocMineFragment = new DocMineFragment();
+//        mdocMineFragment.setArguments(bundle);
         //创建manager管理类 activity---> manager ---> fragment 事务控制fragment
         mFragmentManager = getFragmentManager();
         mfragmentTransaction = mFragmentManager.beginTransaction();
         mfragmentTransaction.replace(R.id.doc_content_layout,mdochomeFragment);
         //提交
         mfragmentTransaction.commit();
+
 
     }
     @Override
@@ -242,8 +256,12 @@ public class Doc_shouye extends AppCompatActivity implements View.OnClickListene
                 if(mdocMineFragment == null){
                     mdocMineFragment = new DocMineFragment();
                     mfragmentTransaction.add(R.id.doc_content_layout,mdocMineFragment);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("name",nameget);
+                    Log.d("Doc_shouye","shouye name"+nameget);
+                    mdocMineFragment.setArguments(bundle);
                 }else{
-                    mfragmentTransaction.show(mdocMineFragment);
+                        mfragmentTransaction.show(mdocMineFragment);
                 }
                 changecolors(mtvMine,mtvtabMine,R.mipmap.mine_selected,R.color.selected);
                 break;
