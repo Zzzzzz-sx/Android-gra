@@ -1,17 +1,26 @@
 package com.example.myapplication.docfragment;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +45,8 @@ import org.w3c.dom.Text;
 
 //医生端创建项目界面
 public class DocCreateFragment extends DocBaseFragment implements View.OnClickListener{
-
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
+    private static final int REQUEST_CAMERA_PERMISSION = 100;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,6 +62,47 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
     Integer age;
     boolean ifcharge=false,ifagree=false;
     ImageView showimg1,showimg2,showimg3;
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            Log.d("DocCreateFragment","image1="+showimg1.getVisibility());
+            // 将选择的图片展示在下方的 ImageView 中
+            if (showimg1.getVisibility() == View.GONE) {
+                showimg1.setImageBitmap(imageBitmap);
+                showimg1.setVisibility(View.VISIBLE);
+            } else if (showimg2.getVisibility() == View.GONE) {
+                showimg2.setImageBitmap(imageBitmap);
+                showimg2.setVisibility(View.VISIBLE);
+            } else if (showimg3.getVisibility() == View.GONE) {
+                showimg3.setImageBitmap(imageBitmap);
+                showimg3.setVisibility(View.VISIBLE);
+            } else {
+                // 最多展示三张图片，可以添加逻辑或者提示
+                Toast.makeText(getActivity(), "最多只能上传三张图片", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    // 请求权限的回调方法
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CAMERA_PERMISSION) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // 用户重新授予了相机权限，执行相应操作
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(takePictureIntent,REQUEST_IMAGE_CAPTURE);
+            } else {
+                // 用户未授予相机权限，可以展示一个提示或者再次解释为何需要相机权限
+                Toast.makeText(getActivity(), "需要相机权限才能继续操作", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         dbHelper = new MySQliteOpenHelper(getActivity(),"Docinfo.db",null,3);
@@ -161,8 +212,33 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
             @Override
             public void onClick(View view) {
 
+                if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    // 相机权限被撤销，请求相机权限
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{Manifest.permission.CAMERA},
+                            REQUEST_CAMERA_PERMISSION);
+                } else {
+                    // 相机权限已授予，执行相应操作
+                    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(takePictureIntent,REQUEST_IMAGE_CAPTURE);
+                }
+
+//                //打开相机
+//                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                startActivityForResult(takePictureIntent,REQUEST_IMAGE_CAPTURE);
+                //从手机相册中获取图片需要动态申请权限
+//                if(ContextCompat.checkSelfPermission(getActivity(),
+//                        Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+//                    ActivityCompat.requestPermissions(this,
+//                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},ALBUM_CODE);
+//                }else{
+//                    //如果已经获取权限，那么就直接拿
+//                    takePhoto();
+//                }
             }
         });
+
 //        -----------------------创建项目的button响应事件
         createitem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -219,6 +295,16 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
         getActivity().finish();
         startActivity(new Intent(getActivity(), Doc_shouye.class));
     }
+    //权限申请回调
 
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//        switch (requestCode){
+//            case ALBUM_CODE:
+//                //获取照片
+//                takePhoto();
+//                break;
+//        }
+//    }
 }
 
