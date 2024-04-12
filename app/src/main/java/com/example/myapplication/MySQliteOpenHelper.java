@@ -2,9 +2,11 @@ package com.example.myapplication;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.myapplication.Docter;
@@ -12,6 +14,7 @@ import com.example.myapplication.Docter;
 public class MySQliteOpenHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 3;
     private static final String DB_NAME="Docinfo.db";
+//    private static final String DB_NAME2 = "Patinfo.db";
 
     private static final String Create_doc="create table docter(id Integer primary key autoincrement,docname varchar(32),docpw varchar(32))";
 

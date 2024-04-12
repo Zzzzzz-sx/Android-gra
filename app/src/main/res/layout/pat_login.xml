@@ -4,10 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Login_doc">
+    tools:context=".Login_pat"
+
+>
 
     <EditText
-        android:id="@+id/et_login_doc_name"
+        android:id="@+id/et_login_pat_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="在此处输入账号"
@@ -26,7 +28,7 @@
             ></TextView>
         <EditText
             android:layout_weight="0.78"
-            android:id="@+id/et_login_doc_password"
+            android:id="@+id/et_login_pat_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="在此处输入密码"
@@ -35,28 +37,28 @@
             android:layout_gravity="center"
             android:textAlignment="center"></EditText>
         <Button
-            android:id="@+id/btn_doc_forget"
+            android:id="@+id/btn_pat_forget"
             android:layout_weight="0.75"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="docforget"
+            android:onClick="patforget"
             android:text="忘记密码"
             ></Button>
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_doc_login"
+        android:id="@+id/btn_pat_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="docterlogin"
+        android:onClick="patientlogin"
         android:text="登录"
         android:layout_gravity="center"></Button>
     <Button
-        android:id="@+id/btn_doc_to_reg"
+        android:id="@+id/btn_pat_to_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
+        android:onClick="logintoreg"
         android:text="注册"
         android:layout_gravity="center"></Button>
 

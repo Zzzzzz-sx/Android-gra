@@ -26,12 +26,12 @@ public class Login_doc extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doc_login);
         EditText login_name,login_password;
-        Button btndoclogin,btndocreg,btnforget;
-        login_name = findViewById(R.id.et_login_name);
-        login_password = findViewById(R.id.et_login_password);
+        Button btndoclogin,btndocreg,btndocforget;
+        login_name = findViewById(R.id.et_login_doc_name);
+        login_password = findViewById(R.id.et_login_doc_password);
         btndoclogin = findViewById(R.id.btn_doc_login);
         btndocreg = findViewById(R.id.btn_doc_to_reg);
-        btnforget = findViewById(R.id.btn_doc_forget);
+        btndocforget = findViewById(R.id.btn_doc_forget);
         dbHelper = new MySQliteOpenHelper(this, "Docinfo.db",null,3);
         btndocreg.setOnClickListener(new View.OnClickListener() {
             @Override
