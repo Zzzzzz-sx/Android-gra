@@ -18,20 +18,20 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".Login_pat"
+            android:name=".Pat_shouye"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Doc_shouye"/>
+        <activity android:name=".Login_pat"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".Register_doc"/>
         <activity android:name=".ShowNews"></activity>
         <activity android:name=".Login_doc"></activity>
         <activity android:name=".Register_pat"></activity>
-        <activity android:name=".Pat_shouye" />
+        <activity android:name=".Doc_shouye" />
 
 
     </application>

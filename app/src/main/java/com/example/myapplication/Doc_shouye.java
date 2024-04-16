@@ -19,7 +19,6 @@ import com.example.myapplication.docfragment.DocMineFragment;
 import com.example.myapplication.docfragment.DocSearchFragment;
 import com.example.myapplication.docfragment.DochomeFragment;
 
-import org.w3c.dom.Text;
 
 import pl.com.salsoft.sqlitestudioremote.SQLiteStudioService;
 

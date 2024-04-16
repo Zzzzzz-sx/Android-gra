@@ -3,7 +3,6 @@ package com.example.myapplication;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -56,7 +55,7 @@ public class Pat_shouye extends AppCompatActivity implements View.OnClickListene
         //默认选中home控件
         mtvHome.setBackgroundResource(R.mipmap.home_selected);
         mtvtabHome.setTextColor(getResources().getColor(R.color.selected));
-        //找到relativ容器
+        //找到relative容器
         RelativeLayout rlHome = findViewById(R.id.rl_pat_shouye);
         RelativeLayout rlItem = findViewById(R.id.rl_pat_item);
         RelativeLayout rlMessage = findViewById(R.id.rl_pat_message);
@@ -76,7 +75,7 @@ public class Pat_shouye extends AppCompatActivity implements View.OnClickListene
         //创建manager管理类 activity---> manager ---> fragment 事务控制fragment
         mFragmentManager = getFragmentManager();
         mfragmentTransaction = mFragmentManager.beginTransaction();
-        mfragmentTransaction.replace(R.id.pat_content_layout,mpatHomeFragment);
+        mfragmentTransaction.add(R.id.pat_content_layout,mpatHomeFragment);
         //提交
         mfragmentTransaction.commit();
     }
@@ -118,12 +117,12 @@ public class Pat_shouye extends AppCompatActivity implements View.OnClickListene
                 if(mpatSearchFragment == null){
                     mpatSearchFragment = new PatSearchFragment();
                     mfragmentTransaction.add(R.id.pat_content_layout,mpatSearchFragment);
-                }else{
+                }else if (mpatSearchFragment !=null){
                     mfragmentTransaction.show(mpatSearchFragment);
                 }
                 changecolors(mtvItem,mtvtabItem,R.mipmap.searchitem_selected,R.color.selected);
                 break;
-            case R.id.rl_doc_message:
+            case R.id.rl_pat_message:
 //                todo 切换到DocMessageFragment
                 if(mpatHomeFragment != null){
                     mfragmentTransaction.hide(mpatHomeFragment);
@@ -136,13 +135,14 @@ public class Pat_shouye extends AppCompatActivity implements View.OnClickListene
                 }
                 if(mpatMessageFragment == null){
                     mpatMessageFragment = new PatMessageFragment();
-                    mfragmentTransaction.add(R.id.doc_content_layout,mpatMessageFragment);
+                    mfragmentTransaction.add(R.id.pat_content_layout,mpatMessageFragment);
                 }else{
                     mfragmentTransaction.show(mpatMessageFragment);
                 }
+
                 changecolors(mtvMessage,mtvtabMessage,R.mipmap.message_selected,R.color.selected);
                 break;
-            case R.id.rl_doc_mine:
+            case R.id.rl_pat_mine:
 //                todo 切换到DocMineFragment'
                 //隐藏其他fragment
                 if(mpatHomeFragment != null){
