@@ -16,6 +16,8 @@ import com.example.myapplication.patfragment.PatMessageFragment;
 import com.example.myapplication.patfragment.PatMineFragment;
 import com.example.myapplication.patfragment.PatSearchFragment;
 
+import pl.com.salsoft.sqlitestudioremote.SQLiteStudioService;
+
 public class Pat_shouye extends AppCompatActivity implements View.OnClickListener {
 
     private TextView mtvHome;
@@ -43,6 +45,8 @@ public class Pat_shouye extends AppCompatActivity implements View.OnClickListene
     }
 
     private void initview() {
+        //链接SQLliteStudio
+        SQLiteStudioService.instance().start(this);
         //初始化img和tabbar控件
         mtvHome = findViewById(R.id.Tv_img_pat_home);
         mtvtabHome = findViewById(R.id.Tv_tab_pat_home);
