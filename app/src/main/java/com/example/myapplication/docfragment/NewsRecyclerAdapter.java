@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.R;
 import com.example.myapplication.ShowNews;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.MyViewHolder> {
@@ -43,10 +42,10 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
             @Override
             public void onClick(View view) {
                 //跳转并且传值
-                Toast.makeText(view.getContext(),"跳转到news",Toast.LENGTH_SHORT);
+                Toast.makeText(view.getContext(),"跳转到news",Toast.LENGTH_SHORT).show();
                 Intent intent  = new Intent(view.getContext(), ShowNews.class);
-                intent.putExtra("title",news.getTitle().toString());
-                intent.putExtra("content",news.getContent().toString());
+                intent.putExtra("title",news.getTitle());
+                intent.putExtra("content",news.getContent());
                 view.getContext().startActivity(intent);
             }
         });

@@ -27,6 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="请输入姓名"
+                android:inputType="text"
                 android:textSize="15dp"
                 android:textAlignment="center"
                 android:textColor="#7F7F7F"
@@ -158,8 +159,7 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:text="开始时间:"/>
-            <!--            android:clickable="true"-->
-            <!--            android:onClick="showcreatedate"-->
+
             <TextView
                 android:layout_weight="0.9"
                 android:id="@+id/tv_startdate"
@@ -167,8 +167,7 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:text="请选择时间"/>
-            <!--            android:clickable="true"-->
-            <!--            android:onClick="showcreatedate"-->
+
 
             <Button
                 android:id="@+id/btn_selectdate"
