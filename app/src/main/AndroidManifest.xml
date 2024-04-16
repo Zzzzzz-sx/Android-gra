@@ -31,6 +31,7 @@
         <activity android:name=".ShowNews"></activity>
         <activity android:name=".Login_doc"></activity>
         <activity android:name=".Register_pat"></activity>
+        <activity android:name=".Pat_shouye" />
 
 
     </application>
