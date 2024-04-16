@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,12 +35,16 @@ public class Pat_shouye extends AppCompatActivity implements View.OnClickListene
     private PatMessageFragment mpatMessageFragment;
     private PatMineFragment mpatMineFragment;
     private FragmentManager mFragmentManager;
-
+    String getloginname;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pat_shouye);
+        Intent intent = getIntent();
+        if(intent != null){
+            getloginname = intent.getStringExtra("login_name");
+        }
         initview();
 
     }
@@ -162,10 +167,10 @@ public class Pat_shouye extends AppCompatActivity implements View.OnClickListene
                 if(mpatMineFragment == null){
                     mpatMineFragment = new PatMineFragment();
                     mfragmentTransaction.add(R.id.pat_content_layout,mpatMineFragment);
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString("name",nameget);
-//                    Log.d("Doc_shouye","shouye name"+nameget);
-//                    mdocMineFragment.setArguments(bundle);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("login_name",getloginname);
+                    Log.d("Pat_shouye","shouye name"+getloginname);
+                    mpatMineFragment.setArguments(bundle);
                 }else{
                     mfragmentTransaction.show(mpatMineFragment);
                 }

@@ -38,8 +38,8 @@ public class Register_pat extends AppCompatActivity {
                 String name = registername.getText().toString();
                 String password = registerpw.getText().toString();
                 ContentValues cv = new ContentValues();
-                cv.put("patname",name);
-                cv.put("patpw",password);
+                cv.put("pat_login_name",name);
+                cv.put("pat_login_pw",password);
                 boolean suc = regsuc(name);
                 Log.d("Register_pat","show"+suc);
                 if(!suc){
@@ -73,7 +73,7 @@ public class Register_pat extends AppCompatActivity {
         if(cursor.moveToFirst()){
             do {
 //                Log.d("Register_doc","success2");
-                String username1 = cursor.getString(cursor.getColumnIndexOrThrow("docname"));
+                String username1 = cursor.getString(cursor.getColumnIndexOrThrow("pat_login_name"));
 //                Log.d("Register_doc","username1="+username1);
                 result = username1.equals(name);
 //                Log.d("Register_doc","equal="+result);

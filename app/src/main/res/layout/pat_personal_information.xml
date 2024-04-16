@@ -2,35 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Register_pat">
-
+    android:layout_height="match_parent">
     <EditText
-        android:id="@+id/et_reg_pat_name"
+        android:id="@+id/et_pat_name"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:hint="在此处输入账号"
+        android:hint="在此处输入姓名"
         android:inputType="text"
         android:ems="10"
         android:layout_gravity="center"
         android:textAlignment="center"></EditText>
 
     <EditText
-        android:id="@+id/et_reg_pat_password"
+        android:id="@+id/et_pat_personalid"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:ems="10"
-        android:hint="在此处输入密码"
-        android:inputType="textPassword"
+        android:hint="在此处输入身份证号"
+        android:inputType="number"
+        android:textAlignment="center"></EditText>
+    <EditText
+        android:id="@+id/et_pat_mobilenum"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:hint="在此处输入联系方式"
+        android:inputType="number"
         android:textAlignment="center"></EditText>
     <Button
-        android:id="@+id/btn_pat_register"
+        android:id="@+id/btn_pat_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="docterreg"
-        android:text="点击注册"
+        android:clickable="true"
+        android:text="保存"
         android:layout_gravity="center"></Button>
-
 </LinearLayout>

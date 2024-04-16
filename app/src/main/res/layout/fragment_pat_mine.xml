@@ -1,10 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     tools:context=".patfragment.PatMineFragment"
-    >
+    android:padding="16dp">
 
+    <!-- 头像 -->
+    <ImageView
+        android:id="@+id/docter_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@mipmap/mine_docterpic"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"/>
+
+
+
+
+    <!-- 工作量统计 -->
+    <TextView
+        android:id="@+id/tv_pat_personalinfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="个人资料"
+        android:textSize="18sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:clickable="true"
+        android:layout_marginBottom="10dp"/>
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="16dp"/>
+    <!-- 仪器参数设置 -->
+    <TextView
+        android:id="@+id/tv_instrumentset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="仪器参数设置"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:clickable="true"
+        android:onClick="InstrumentSettings"
+        android:layout_marginBottom="10dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="16dp"/>
 </LinearLayout>

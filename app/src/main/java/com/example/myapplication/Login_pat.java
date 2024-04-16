@@ -41,9 +41,10 @@ public class Login_pat extends AppCompatActivity {
                     finish();
                     //跳转到患者首页界面
                     Intent intent = new Intent(Login_pat.this,Pat_shouye.class);
-                    startActivity(intent);
-//                    intent.putExtra("name",name1);
-//                    view.getContext().startActivity(intent);
+//                    startActivity(intent);
+                    //传出用户名
+                    intent.putExtra("login_name",logname);
+                    view.getContext().startActivity(intent);
 
 
                 }
@@ -65,20 +66,13 @@ public class Login_pat extends AppCompatActivity {
     }
 
     private boolean logsuc(String logname, String logpw, SQLiteDatabase db) {
-        //        SQLiteDatabase db1 = dbHelper.getWritableDatabase();
         boolean result = false;
-//        Log.d("Register_doc","success1");
         Cursor cursor = db.query("patient",null,null,null,null,null,null);
-//        Log.d("Register_doc","success1"+cursor.moveToFirst());
         if(cursor.moveToFirst()){
             do {
-//                Log.d("Register_doc","success2");
-                String username1 = cursor.getString(cursor.getColumnIndexOrThrow("patname"));
-                String userpw1 = cursor.getString(cursor.getColumnIndexOrThrow("patpw"));
-//                Log.d("Register_doc","username1="+username1);
+                String username1 = cursor.getString(cursor.getColumnIndexOrThrow("pat_login_name"));
+                String userpw1 = cursor.getString(cursor.getColumnIndexOrThrow("pat_login_pw"));
                 result = username1.equals(logname)&&userpw1.equals(logpw);
-//                Log.d("Register_doc","equal="+result);
-//                Log.d("Register_doc","next="+cursor.moveToNext());
                 if(result){
                     return result;
                 }

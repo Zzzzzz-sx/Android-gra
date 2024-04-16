@@ -32,6 +32,7 @@
         <activity android:name=".Login_doc"></activity>
         <activity android:name=".Register_pat"></activity>
         <activity android:name=".Doc_shouye" />
+        <activity android:name="Pat_Personalinfo"></activity>
 
 
     </application>
