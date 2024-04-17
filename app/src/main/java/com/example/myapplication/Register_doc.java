@@ -73,7 +73,7 @@ public class Register_doc extends AppCompatActivity {
         if(cursor.moveToFirst()){
             do {
 //                Log.d("Register_doc","success2");
-                String username1 = cursor.getString(cursor.getColumnIndexOrThrow("docname"));
+                String username1 = cursor.getString(cursor.getColumnIndexOrThrow("doc_login_name"));
 //                Log.d("Register_doc","username1="+username1);
                 result = username1.equals(username);
 //                Log.d("Register_doc","equal="+result);

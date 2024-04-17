@@ -76,9 +76,9 @@ public class Login_doc extends AppCompatActivity {
         if(cursor.moveToFirst()){
             do {
 //                Log.d("Register_doc","success2");
-                String username1 = cursor.getString(cursor.getColumnIndexOrThrow("docname"));
-                String userpw1 = cursor.getString(cursor.getColumnIndexOrThrow("docpw"));
-                name1 = cursor.getString(cursor.getColumnIndexOrThrow("name"));
+                String username1 = cursor.getString(cursor.getColumnIndexOrThrow("doc_login_name"));
+                String userpw1 = cursor.getString(cursor.getColumnIndexOrThrow("doc_login_pw"));
+                name1 = cursor.getString(cursor.getColumnIndexOrThrow("docter_name"));
 //                Log.d("Register_doc","username1="+username1);
                 result = username1.equals(username)&&userpw1.equals(userpw);
 //                Log.d("Register_doc","equal="+result);

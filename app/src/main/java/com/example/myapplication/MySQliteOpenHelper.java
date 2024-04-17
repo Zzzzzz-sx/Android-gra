@@ -16,7 +16,7 @@ public class MySQliteOpenHelper extends SQLiteOpenHelper {
     private static final String DB_NAME="Docinfo.db";
 //    private static final String DB_NAME2 = "Patinfo.db";
 
-    private static final String Create_doc="create table docter(id Integer primary key autoincrement,docname varchar(32),docpw varchar(32))";
+    private static final String Create_doc="create table docter(id Integer primary key autoincrement,doc_login_name varchar(32),doc_login_pw varchar(32),docter_name varchar(32))";
 
     public static final String Create_Item = "create table Item("
             +" id integer primary key autoincrement,"
