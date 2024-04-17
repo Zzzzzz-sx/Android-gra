@@ -54,11 +54,11 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
         return inflater.inflate(R.layout.fragment_doc_create, container, false);
     }
     private MySQliteOpenHelper dbHelper;
-    EditText createname,createage;
+    EditText createname,createage,createpersonalid;
     TextView showcreatedate;
     Button selectcreatedate,createitem,uploadimage;
     Spinner sex,doctername,itemname,charge,inform;
-    String str_name,getsex,getdocname,getitemname,getchargesitu,getinfo,strselectcreatedate;
+    String str_name,getsex,getdocname,getitemname,getchargesitu,getinfo,strselectcreatedate,getpersonalid;
     Integer age;
     boolean ifcharge=false,ifagree=false;
     ImageView showimg1,showimg2,showimg3;
@@ -117,6 +117,7 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
         showcreatedate = getActivity().findViewById(R.id.tv_startdate);
         selectcreatedate = getActivity().findViewById(R.id.btn_selectdate);
         createitem = getActivity().findViewById(R.id.btn_createItem);
+        createpersonalid = getActivity().findViewById(R.id.et_create_personalid);
         //找到上传图片按钮控件以及展示图片的ImageView控件
         uploadimage = getActivity().findViewById(R.id.upload_button);
         showimg1 = getActivity().findViewById(R.id.img_upload_1);
@@ -289,6 +290,7 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
         Item.put("starttime",strselectcreatedate);
         Item.put("charge",ifcharge);
         Item.put("knowsitu",ifagree);
+        Item.put("pat_personalid",getpersonalid);
         //插入数据库中
         db.insert("Item",null,Item);
         Toast.makeText(getActivity(),"创建成功！",Toast.LENGTH_SHORT).show();
