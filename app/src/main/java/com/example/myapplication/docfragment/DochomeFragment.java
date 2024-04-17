@@ -1,5 +1,6 @@
 package com.example.myapplication.docfragment;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -18,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.myapplication.MySQliteOpenHelper;
+import com.example.myapplication.News.CreateNews;
 import com.example.myapplication.News.News;
 import com.example.myapplication.News.NewsRecyclerAdapter;
 import com.example.myapplication.R;
@@ -51,11 +53,12 @@ public class DochomeFragment extends DocBaseFragment {
         DividerItemDecoration divider = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(new ColorDrawable(Color.BLACK));
         recyclerView.addItemDecoration(divider);
+        //创建新文章按钮
         createnews = getActivity().findViewById(R.id.btn_Create_News);
         createnews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(getContext(), CreateNews.class));
             }
         });
     }

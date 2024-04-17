@@ -28,6 +28,7 @@
         <activity android:name=".Pat_shouye"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".Register_doc"/>
+        <activity android:name=".News.CreateNews"></activity>
         <activity android:name=".News.ShowNews"></activity>
         <activity android:name=".Login_doc"></activity>
         <activity android:name=".Register_pat"></activity>

@@ -51,10 +51,10 @@ public class ShowNews extends AppCompatActivity {
             public void onClick(View view) {
                 edittitle=Title.getText().toString();
                 editcontent=Content.getText().toString();
-                if(edittitle==null){
+                if(edittitle.equals("")){
                     Toast.makeText(view.getContext(),"标题为空！",Toast.LENGTH_SHORT).show();
                 }
-                else if (editcontent==null){
+                else if (editcontent.equals("")){
                     Toast.makeText(view.getContext(),"内容为空！",Toast.LENGTH_SHORT).show();
                 }
                 else {
