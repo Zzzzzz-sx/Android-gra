@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.News;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -15,6 +15,10 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.Doc_shouye;
+import com.example.myapplication.MySQliteOpenHelper;
+import com.example.myapplication.R;
 
 public class ShowNews extends AppCompatActivity {
     EditText Title,Content;

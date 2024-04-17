@@ -13,8 +13,6 @@ import androidx.annotation.Nullable;
 
 import com.example.myapplication.Pat_Personalinfo;
 import com.example.myapplication.R;
-import com.example.myapplication.Register_pat;
-import com.example.myapplication.ShowNews;
 
 public class PatMineFragment extends PatBaseFragment{
 

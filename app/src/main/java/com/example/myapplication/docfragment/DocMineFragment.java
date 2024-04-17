@@ -1,24 +1,16 @@
 package com.example.myapplication.docfragment;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.annotation.GlideModule;
-import com.bumptech.glide.module.AppGlideModule;
 
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.ShowNews;
 
 //医生端个人信息界面
 public class DocMineFragment extends DocBaseFragment {
