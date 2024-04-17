@@ -1,4 +1,4 @@
-package com.example.myapplication.docfragment;
+package com.example.myapplication.News;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -46,6 +46,7 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
                 Intent intent  = new Intent(view.getContext(), ShowNews.class);
                 intent.putExtra("title",news.getTitle());
                 intent.putExtra("content",news.getContent());
+                intent.putExtra("newsid",news.getId());
                 view.getContext().startActivity(intent);
             }
         });

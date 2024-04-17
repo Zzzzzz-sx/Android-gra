@@ -18,7 +18,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".Login_pat"
+            android:name=".Doc_shouye"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
         <activity android:name=".ShowNews"></activity>
         <activity android:name=".Login_doc"></activity>
         <activity android:name=".Register_pat"></activity>
-        <activity android:name=".Doc_shouye" />
+        <activity android:name=".Login_pat" />
         <activity android:name="Pat_Personalinfo"></activity>
 
 

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.News.News;
 import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.ArrayList;

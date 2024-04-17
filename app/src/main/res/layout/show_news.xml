@@ -4,21 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
+        android:background="@drawable/edittext_style"
         android:textStyle="bold"
-        android:id="@+id/tv_news_title"></TextView>
+        android:id="@+id/tv_news_title"></EditText>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-        <TextView
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_news_content"></TextView>
+            android:background="@drawable/edittext_style"
+            android:id="@+id/tv_news_content"></EditText>
+        <Button
+            android:id="@+id/btn_undate_news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存修改"
+            android:clickable="true"
+            android:layout_gravity="center_horizontal"></Button>
         <Button
             android:id="@+id/btn_delete_news"
             android:layout_width="wrap_content"

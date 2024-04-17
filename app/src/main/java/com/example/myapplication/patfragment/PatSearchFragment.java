@@ -18,8 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.MySQliteOpenHelper;
 import com.example.myapplication.R;
-import com.example.myapplication.docfragment.HistoryRecycleAdapter;
-import com.example.myapplication.docfragment.Historyproject;
+import com.example.myapplication.HistoryItem.HistoryRecycleAdapter;
+import com.example.myapplication.HistoryItem.Historyproject;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.myapplication.docfragment;
+package com.example.myapplication.News;
 
 public class News  {
     int id;

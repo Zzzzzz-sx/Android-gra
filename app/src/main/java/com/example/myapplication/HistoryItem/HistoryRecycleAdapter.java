@@ -1,4 +1,4 @@
-package com.example.myapplication.docfragment;
+package com.example.myapplication.HistoryItem;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HistoryRecycleAdapter extends RecyclerView.Adapter<HistoryRecycleAdapter.MyViewHolder> {

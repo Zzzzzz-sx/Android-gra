@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.myapplication.MySQliteOpenHelper;
+import com.example.myapplication.News.News;
+import com.example.myapplication.News.NewsRecyclerAdapter;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;

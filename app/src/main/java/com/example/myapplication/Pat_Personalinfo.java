@@ -72,7 +72,7 @@ public class Pat_Personalinfo extends AppCompatActivity {
         Patinfo.put("pat_name",patname);
         Patinfo.put("pat_personalid",patpersonalid);
         Patinfo.put("pat_phonenum",patphonenum);
-        //插入数据库中(存在问题---------未对应账号）
+        //插入数据库中
         db.update("patient",Patinfo,"pat_login_name=?",new String[]{loginname});
         Toast.makeText(this,"保存成功！",Toast.LENGTH_SHORT).show();
         finish();

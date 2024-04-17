@@ -21,6 +21,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.Doc_shouye;
+import com.example.myapplication.HistoryItem.HistoryRecycleAdapter;
+import com.example.myapplication.HistoryItem.Historyproject;
 import com.example.myapplication.MySQliteOpenHelper;
 import com.example.myapplication.R;
 

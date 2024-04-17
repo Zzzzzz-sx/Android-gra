@@ -18,8 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.MySQliteOpenHelper;
 import com.example.myapplication.R;
-import com.example.myapplication.docfragment.News;
-import com.example.myapplication.docfragment.NewsRecyclerAdapter;
+import com.example.myapplication.News.News;
+import com.example.myapplication.News.NewsRecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
