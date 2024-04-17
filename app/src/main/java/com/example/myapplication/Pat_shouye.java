@@ -35,7 +35,7 @@ public class Pat_shouye extends AppCompatActivity implements View.OnClickListene
     private PatMessageFragment mpatMessageFragment;
     private PatMineFragment mpatMineFragment;
     private FragmentManager mFragmentManager;
-    String getloginname;
+    String getloginname,getpersonalid;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class Pat_shouye extends AppCompatActivity implements View.OnClickListene
         Intent intent = getIntent();
         if(intent != null){
             getloginname = intent.getStringExtra("login_name");
+            getpersonalid = intent.getStringExtra("patpersonalid");
         }
         initview();
 
@@ -126,6 +127,9 @@ public class Pat_shouye extends AppCompatActivity implements View.OnClickListene
                 if(mpatSearchFragment == null){
                     mpatSearchFragment = new PatSearchFragment();
                     mfragmentTransaction.add(R.id.pat_content_layout,mpatSearchFragment);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("patpersonalid",getpersonalid);
+                    mpatSearchFragment.setArguments(bundle);
                 }else if (mpatSearchFragment !=null){
                     mfragmentTransaction.show(mpatSearchFragment);
                 }

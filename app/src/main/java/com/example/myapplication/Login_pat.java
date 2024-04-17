@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,12 +17,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Login_pat extends AppCompatActivity {
     private PatSQliteOpenHelper dbHelper;
+    EditText login_name,login_password;
+    Button btnpatlogin,btnpatreg,btnpatforget;
+    String getpersonalid;
     @SuppressLint("MissingInflatedId")
     public void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pat_login);
-        EditText login_name,login_password;
-        Button btnpatlogin,btnpatreg,btnpatforget;
+
         login_name = findViewById(R.id.et_login_pat_name);
         login_password = findViewById(R.id.et_login_pat_password);
         btnpatlogin = findViewById(R.id.btn_pat_login);
@@ -44,9 +47,11 @@ public class Login_pat extends AppCompatActivity {
 //                    startActivity(intent);
                     //传出用户名
                     intent.putExtra("login_name",logname);
+                    if (getpersonalid!=null){
+                        intent.putExtra("patpersonalid",getpersonalid);
+                        Log.d("Login_pat",getpersonalid);
+                    }
                     view.getContext().startActivity(intent);
-
-
                 }
                 else{
                     Toast.makeText(Login_pat.this,"用户名或密码错误，请重新输入",Toast.LENGTH_SHORT).show();
@@ -72,6 +77,7 @@ public class Login_pat extends AppCompatActivity {
             do {
                 String username1 = cursor.getString(cursor.getColumnIndexOrThrow("pat_login_name"));
                 String userpw1 = cursor.getString(cursor.getColumnIndexOrThrow("pat_login_pw"));
+                getpersonalid = cursor.getString(cursor.getColumnIndexOrThrow("pat_personalid"));
                 result = username1.equals(logname)&&userpw1.equals(logpw);
                 if(result){
                     return result;
