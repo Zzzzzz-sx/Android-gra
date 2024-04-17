@@ -65,6 +65,11 @@
         android:gravity="center_horizontal"
         android:clickable="true"
         android:onClick="InstrumentSettings"
-        android:layout_marginBottom="24dp"/>
-
+        android:layout_marginBottom="16dp"/>
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="16dp"/>
 </LinearLayout>
