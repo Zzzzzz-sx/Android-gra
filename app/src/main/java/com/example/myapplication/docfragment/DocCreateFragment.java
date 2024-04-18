@@ -3,14 +3,10 @@ package com.example.myapplication.docfragment;
 import android.Manifest;
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
@@ -18,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
 import android.util.Log;
@@ -35,13 +30,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.Doc_shouye;
-import com.example.myapplication.Login_doc;
-import com.example.myapplication.MainActivity;
-import com.example.myapplication.MySQliteOpenHelper;
+import com.example.myapplication.SQliteOpenHelper.MySQliteOpenHelper;
 import com.example.myapplication.R;
-import com.example.myapplication.Register_doc;
-
-import org.w3c.dom.Text;
 
 //医生端创建项目界面
 public class DocCreateFragment extends DocBaseFragment implements View.OnClickListener{

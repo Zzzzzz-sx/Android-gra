@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.MySQliteOpenHelper;
+import com.example.myapplication.SQliteOpenHelper.MySQliteOpenHelper;
 import com.example.myapplication.R;
 import com.example.myapplication.News.News;
 import com.example.myapplication.News.NewsRecyclerAdapter;

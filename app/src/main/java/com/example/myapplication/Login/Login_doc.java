@@ -1,11 +1,10 @@
-package com.example.myapplication;
+package com.example.myapplication.Login;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +13,10 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.docfragment.DocMineFragment;
+import com.example.myapplication.Doc_shouye;
+import com.example.myapplication.R;
+import com.example.myapplication.Register.Register_doc;
+import com.example.myapplication.SQliteOpenHelper.MySQliteOpenHelper;
 
 
 public class Login_doc extends AppCompatActivity {
@@ -36,7 +38,7 @@ public class Login_doc extends AppCompatActivity {
         btndocreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Login_doc.this,Register_doc.class));
+                startActivity(new Intent(Login_doc.this, Register_doc.class));
             }
         });
         btndoclogin.setOnClickListener(new View.OnClickListener() {

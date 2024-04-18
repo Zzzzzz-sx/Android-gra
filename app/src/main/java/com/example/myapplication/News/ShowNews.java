@@ -4,20 +4,17 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.service.quicksettings.Tile;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.Doc_shouye;
-import com.example.myapplication.MySQliteOpenHelper;
+import com.example.myapplication.SQliteOpenHelper.MySQliteOpenHelper;
 import com.example.myapplication.R;
 
 public class ShowNews extends AppCompatActivity {

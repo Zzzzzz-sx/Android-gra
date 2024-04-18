@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.myapplication.Login.Login_doc;
+import com.example.myapplication.Login.Login_pat;
 
 public class MainActivity extends AppCompatActivity {
     Button patlog,doclog;
@@ -19,13 +21,13 @@ public class MainActivity extends AppCompatActivity {
         patlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,Login_doc.class));
+                startActivity(new Intent(MainActivity.this, Login_doc.class));
             }
         });
         doclog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,Login_pat.class));
+                startActivity(new Intent(MainActivity.this, Login_pat.class));
             }
         });
     }

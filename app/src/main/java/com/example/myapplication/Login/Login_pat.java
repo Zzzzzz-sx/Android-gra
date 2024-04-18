@@ -1,10 +1,9 @@
-package com.example.myapplication;
+package com.example.myapplication.Login;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +13,11 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.Pat_shouye;
+import com.example.myapplication.R;
+import com.example.myapplication.Register.Register_pat;
+import com.example.myapplication.SQliteOpenHelper.PatSQliteOpenHelper;
 
 public class Login_pat extends AppCompatActivity {
     private PatSQliteOpenHelper dbHelper;
@@ -43,7 +47,7 @@ public class Login_pat extends AppCompatActivity {
                     Toast.makeText(Login_pat.this,"登录成功！",Toast.LENGTH_SHORT).show();
                     finish();
                     //跳转到患者首页界面
-                    Intent intent = new Intent(Login_pat.this,Pat_shouye.class);
+                    Intent intent = new Intent(Login_pat.this, Pat_shouye.class);
 //                    startActivity(intent);
                     //传出用户名
                     intent.putExtra("login_name",logname);
@@ -65,7 +69,7 @@ public class Login_pat extends AppCompatActivity {
         btnpatreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Login_pat.this,Register_pat.class));
+                startActivity(new Intent(Login_pat.this, Register_pat.class));
             }
         });
     }

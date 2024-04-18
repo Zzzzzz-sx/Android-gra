@@ -18,7 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.myapplication.MySQliteOpenHelper;
+import com.example.myapplication.SQliteOpenHelper.MySQliteOpenHelper;
 import com.example.myapplication.News.CreateNews;
 import com.example.myapplication.News.News;
 import com.example.myapplication.News.NewsRecyclerAdapter;

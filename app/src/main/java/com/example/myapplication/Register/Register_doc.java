@@ -1,7 +1,6 @@
-package com.example.myapplication;
+package com.example.myapplication.Register;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,6 +13,10 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.Login.Login_doc;
+import com.example.myapplication.R;
+import com.example.myapplication.SQliteOpenHelper.MySQliteOpenHelper;
 
 import pl.com.salsoft.sqlitestudioremote.SQLiteStudioService;
 
@@ -46,7 +49,7 @@ public class Register_doc extends AppCompatActivity {
                     db.insert("docter",null,cv);
                     Toast.makeText(Register_doc.this,"注册成功！",Toast.LENGTH_SHORT).show();
                     finish();
-                    startActivity(new Intent(Register_doc.this,Login_doc.class));
+                    startActivity(new Intent(Register_doc.this, Login_doc.class));
                 }
                 else if(name==null||password==null){
                     Toast.makeText(Register_doc.this,"用户名或密码为空，请重新输入",Toast.LENGTH_SHORT).show();

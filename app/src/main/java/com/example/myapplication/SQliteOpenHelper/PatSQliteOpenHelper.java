@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.SQliteOpenHelper;
 
 import android.content.Context;
 import android.database.DatabaseErrorHandler;

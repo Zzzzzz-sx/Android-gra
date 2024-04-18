@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Register;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -14,6 +14,10 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.Login.Login_pat;
+import com.example.myapplication.R;
+import com.example.myapplication.SQliteOpenHelper.PatSQliteOpenHelper;
 
 import pl.com.salsoft.sqlitestudioremote.SQLiteStudioService;
 
@@ -46,7 +50,7 @@ public class Register_pat extends AppCompatActivity {
                     db.insert("patient",null,cv);
                     Toast.makeText(Register_pat.this,"注册成功！",Toast.LENGTH_SHORT).show();
                     finish();
-                    startActivity(new Intent(Register_pat.this,Login_pat.class));
+                    startActivity(new Intent(Register_pat.this, Login_pat.class));
                 }
                 else if(name==null||password==null){
                     Toast.makeText(Register_pat.this,"用户名或密码为空，请重新输入",Toast.LENGTH_SHORT).show();

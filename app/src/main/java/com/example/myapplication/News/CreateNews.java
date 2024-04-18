@@ -14,8 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.Doc_shouye;
-import com.example.myapplication.MySQliteOpenHelper;
-import com.example.myapplication.Pat_shouye;
+import com.example.myapplication.SQliteOpenHelper.MySQliteOpenHelper;
 import com.example.myapplication.R;
 
 public class CreateNews extends AppCompatActivity {
