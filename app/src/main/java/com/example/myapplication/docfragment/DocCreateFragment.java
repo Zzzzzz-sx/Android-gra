@@ -33,6 +33,8 @@ import com.example.myapplication.Doc_shouye;
 import com.example.myapplication.SQliteOpenHelper.MySQliteOpenHelper;
 import com.example.myapplication.R;
 
+import java.util.Date;
+
 //医生端创建项目界面
 public class DocCreateFragment extends DocBaseFragment implements View.OnClickListener{
     private static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -276,7 +278,7 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
             DatePickerDialog createdate = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                    showcreatedate.setText(String.valueOf(i)+"年"+String.valueOf(i1+1)+"月"+String.valueOf(i2)+"日");
+                    showcreatedate.setText(String.valueOf(i)+"-"+String.valueOf(i1+1)+"-"+String.valueOf(i2));
                     strselectcreatedate = showcreatedate.getText().toString();
                 }
             }, 2023, 2, 2);
