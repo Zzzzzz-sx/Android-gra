@@ -73,6 +73,7 @@ public class Doc_workcount extends AppCompatActivity {
         getworkcount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("Doc_workcount","医生为"+nameget);
                 SQLiteDatabase db =dbHelper.getWritableDatabase();
                 Cursor cursor = db.query("Item",null,"starttime BETWEEN ? AND ? AND doc = ?",new String[]{getstarttime,getendtime,nameget},null,null,null);
                 if (cursor.moveToFirst()){
@@ -80,11 +81,11 @@ public class Doc_workcount extends AppCompatActivity {
                         charge = cursor.getInt(cursor.getColumnIndexOrThrow("chargenum"));
                         Log.d("Doc_workcount","费用为"+charge);
                         chargesum +=charge;
-                        Log.d("Doc_workcount","费用2为"+charge);
+                        Log.d("Doc_workcount","费用2为"+chargesum);
                     }while (cursor.moveToNext());
                 }
                 cursor.close();
-                showworkcount.setText(charge.toString());
+                showworkcount.setText(chargesum.toString());
             }
         });
     }
