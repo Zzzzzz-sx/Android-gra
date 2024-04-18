@@ -25,6 +25,7 @@ public class MySQliteOpenHelper extends SQLiteOpenHelper {
             +" itemname text,"
             +" doc text,"
             +" starttime date, "
+            +" chargenum integer, "
             +" charge boolean,"
             +" knowsitu boolean)";
     public static final String Create_news = "create table News(id Integer primary key autoincrement,title varchar(32),content varchar(32))";

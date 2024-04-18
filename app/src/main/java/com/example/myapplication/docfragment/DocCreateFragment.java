@@ -48,8 +48,8 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
     TextView showcreatedate;
     Button selectcreatedate,createitem,uploadimage;
     Spinner sex,doctername,itemname,charge,inform;
-    String str_name,getsex,getdocname,getitemname,getchargesitu,getinfo,strselectcreatedate,getpersonalid;
-    Integer age;
+    String getpatname,getsex,getdocname,getitemname,getchargesitu,getinfo,strselectcreatedate,getpersonalid;
+    Integer getage,chargenum;
     boolean ifcharge=false,ifagree=false;
     ImageView showimg1,showimg2,showimg3;
     @Override
@@ -157,7 +157,25 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 getitemname=DocCreateFragment.this.getResources().getStringArray(R.array.item)[i];
+                switch(i){
+                    case 1:
+                        chargenum = 1000;
+                        break;
+                    case 2:
+                        chargenum = 2000;
+                        break;
+                    case 3:
+                        chargenum = 3000;
+                        break;
+                    case 4:
+                        chargenum = 4000;
+                        break;
+                    case 5:
+                        chargenum = 5000;
+                        break;
+                }
                 Log.d("DocCreateFragment","项目名是"+getitemname);
+                Log.d("DocCreateFragment","费用是"+chargenum);
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -235,9 +253,10 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
             @Override
             public void onClick(View view) {
                 //获取输入的名字及年龄信息
-                str_name = createname.getText().toString();
-                age = Integer.parseInt(createage.getText().toString());
-                Log.d("DocCreateFragment",str_name+age+getsex+getdocname+getitemname+getchargesitu+strselectcreatedate);
+                getpersonalid = createpersonalid.getText().toString();
+                getpatname = createname.getText().toString();
+                getage = Integer.parseInt(createage.getText().toString());
+                Log.d("DocCreateFragment",getpatname+getage+getsex+getdocname+getitemname+getchargesitu+strselectcreatedate);
                 Log.d("DocCreateFragment",strselectcreatedate);
                 createitemtable();
             }
@@ -272,13 +291,14 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues Item = new ContentValues();
         //设置字段
-        Item.put("name",str_name);
-        Item.put("age",age);
+        Item.put("name",getpatname);
+        Item.put("age",getage);
         Item.put("sex",getsex);
         Item.put("itemname",getitemname);
         Item.put("doc",getdocname);
         Item.put("starttime",strselectcreatedate);
         Item.put("charge",ifcharge);
+        Item.put("chargenum",chargenum);
         Item.put("knowsitu",ifagree);
         Item.put("pat_personalid",getpersonalid);
         //插入数据库中
