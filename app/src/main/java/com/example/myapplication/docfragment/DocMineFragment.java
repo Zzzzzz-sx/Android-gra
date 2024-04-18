@@ -55,7 +55,9 @@ public class DocMineFragment extends DocBaseFragment {
         workcount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), Doc_workcount.class));
+                Intent intent = new Intent(view.getContext(),Doc_workcount.class);
+                intent.putExtra("name",name);
+                view.getContext().startActivity(intent);
             }
         });
 //        Showname();

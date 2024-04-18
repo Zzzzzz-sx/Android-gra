@@ -3,5 +3,93 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_weight="0.1"
+            android:layout_width="wrap_content"
+            android:textColor="#000000"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="开始时间:"/>
+
+        <TextView
+            android:layout_weight="0.9"
+            android:id="@+id/tv_select_startdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="请选择时间"/>
+
+
+        <Button
+            android:id="@+id/btn_select_startdate"
+            android:layout_weight="0.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="selectcreatedate"
+            android:text="选择"
+            ></Button>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_weight="0.1"
+            android:layout_width="wrap_content"
+            android:textColor="#000000"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="结束时间:"/>
+
+        <TextView
+            android:layout_weight="0.9"
+            android:id="@+id/tv_select_enddate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="请选择时间"/>
+
+
+        <Button
+            android:id="@+id/btn_select_enddate"
+            android:layout_weight="0.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="选择"
+            ></Button>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="工作量统计:"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+        <TextView
+            android:id="@+id/tv_chargecount"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textAlignment="center"
+            ></TextView>
+        <Button
+            android:id="@+id/btn_getcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取工作量统计信息"
+            android:clickable="true"
+            android:layout_gravity="center"></Button>
+    </LinearLayout>
+
 
 </LinearLayout>
