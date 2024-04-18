@@ -34,6 +34,7 @@
         <activity android:name=".Register.Register_pat"></activity>
         <activity android:name=".Pat_shouye" />
         <activity android:name="Pat_Personalinfo"></activity>
+        <activity android:name="com.example.myapplication.Doc_workcount" />
 
 
     </application>
