@@ -3,42 +3,99 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
-    <EditText
-
-        android:id="@+id/et_pat_name"
+<LinearLayout
+    android:layout_marginTop="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:text="姓名："></TextView>
+    <EditText
+        android:background="@drawable/edittext_2"
+        android:id="@+id/et_pat_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:hint="在此处输入姓名"
         android:inputType="text"
-        android:ems="10"
+        android:ems="14"
         android:layout_gravity="center"
         android:textAlignment="center"></EditText>
+</LinearLayout>
 
-    <EditText
-        android:id="@+id/et_pat_personalid"
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
         android:layout_gravity="center"
-        android:ems="10"
+        android:text="身份证号："></TextView>
+    <EditText
+        android:background="@drawable/edittext_2"
+        android:id="@+id/et_pat_personalid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:ems="14"
         android:hint="在此处输入身份证号"
         android:inputType="number"
         android:textAlignment="center"></EditText>
-    <EditText
-        android:id="@+id/et_pat_mobilenum"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:ems="10"
-        android:hint="在此处输入联系方式"
-        android:inputType="number"
-        android:textAlignment="center"></EditText>
+</LinearLayout>
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:text="联系方式："></TextView>
+        <EditText
+            android:id="@+id/et_pat_mobilenum"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="14"
+            android:background="@drawable/edittext_2"
+            android:hint="在此处输入联系方式"
+            android:inputType="number"
+            android:textAlignment="center"></EditText>
+    </LinearLayout>
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"/>
     <Button
         android:id="@+id/btn_pat_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:text="保存"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center"></Button>
 </LinearLayout>
