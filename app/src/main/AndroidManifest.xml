@@ -35,6 +35,7 @@
         <activity android:name=".Pat_shouye" />
         <activity android:name=".Pat_Personalinfo"></activity>
         <activity android:name=".Doc_workcount" />
+        <activity android:name="com.example.myapplication.Pat_resetpw" />
 
 
     </application>

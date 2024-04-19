@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Pat_resetpw"
+    >
+
+    <EditText
+        android:id="@+id/et_original_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:hint="在此处输入原密码"
+        android:inputType="text"
+        android:ems="10"
+        android:layout_gravity="center"
+        android:textAlignment="center"></EditText>
+
+    <EditText
+        android:id="@+id/et_new_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:hint="在此处输入新密码"
+        android:inputType="textPassword"
+        android:textAlignment="center"></EditText>
+    <EditText
+        android:id="@+id/et_confirm_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:hint="再次输入新密码"
+        android:inputType="textPassword"
+        android:textAlignment="center"></EditText>
+    <Button
+        android:id="@+id/btn_pat_resetpw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:text="点击重置"
+        android:layout_gravity="center"></Button>
+</LinearLayout>
