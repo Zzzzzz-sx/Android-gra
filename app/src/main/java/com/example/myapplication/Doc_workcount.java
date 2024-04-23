@@ -56,7 +56,7 @@ public class Doc_workcount extends AppCompatActivity {
                         showstarttime.setText(i+"-"+String.valueOf(i1+1)+"-"+String.valueOf(i2));
                         getstarttime = showstarttime.getText().toString();
                     }
-                },2023, 2, 2);
+                },2023, 1, 1);
                 startdate.show();
                 Log.d("Doc_workcount",showstarttime.getText().toString());
             }
@@ -79,8 +79,8 @@ public class Doc_workcount extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 getitemname = Doc_workcount.this.getResources().getStringArray(R.array.item)[i];
-//                Log.d("Doc_workcount","查询索引i："+itemindex);
-
+                itemindex = i;
+                Log.d("Doc_workcount","查询索引i："+itemindex);
                 Log.d("Doc_workcount","查询项目名"+getitemname);
             }
 
@@ -95,7 +95,14 @@ public class Doc_workcount extends AppCompatActivity {
                 chargesum = 0;
                 Log.d("Doc_workcount","医生为"+nameget);
                 SQLiteDatabase db =dbHelper.getWritableDatabase();
-                Cursor cursor = db.query("Item",null,"starttime BETWEEN ? AND ? AND doc = ? AND itemname = ?",new String[]{getstarttime,getendtime,nameget,getitemname},null,null,null);
+                Cursor cursor = null;
+                if (itemindex!=0){
+                    cursor = db.query("Item",null,"starttime BETWEEN ? AND ? AND doc = ? AND itemname = ?",new String[]{getstarttime,getendtime,nameget,getitemname},null,null,null);
+                }
+                else if (itemindex==0){
+                    cursor = db.query("Item",null,"starttime BETWEEN ? AND ? AND doc = ?",new String[]{getstarttime,getendtime,nameget},null,null,null);
+
+                };
                 Log.d("Doc_workcount","cursor____"+cursor.moveToFirst());
                 if (cursor.moveToFirst()){
                     do {
