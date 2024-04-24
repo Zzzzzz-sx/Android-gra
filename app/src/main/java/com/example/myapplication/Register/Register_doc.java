@@ -1,5 +1,6 @@
 package com.example.myapplication.Register;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -22,8 +23,9 @@ import pl.com.salsoft.sqlitestudioremote.SQLiteStudioService;
 
 public class Register_doc extends AppCompatActivity {
     private MySQliteOpenHelper dbHelper;
-    Button docregister;
+    Button docregister,backtologin;
     EditText registername,registerpw;
+    @SuppressLint("MissingInflatedId")
     public void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doc_register);
@@ -33,7 +35,16 @@ public class Register_doc extends AppCompatActivity {
         registername = findViewById(R.id.et_reg_name);
         registerpw = findViewById(R.id.et_reg_password);
         docregister = findViewById(R.id.btn_doc_register);
+        backtologin = findViewById(R.id.btn_doc_reg_back_login);
         dbHelper = new MySQliteOpenHelper(this, "Docinfo.db",null,3);
+        backtologin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                Intent intent =new Intent(Register_doc.this,Login_doc.class);
+                startActivity(intent);
+            }
+        });
         docregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

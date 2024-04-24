@@ -33,7 +33,6 @@ public class Login_doc extends AppCompatActivity {
         login_password = findViewById(R.id.et_login_doc_password);
         btndoclogin = findViewById(R.id.btn_doc_login);
         btndocreg = findViewById(R.id.btn_doc_to_reg);
-        btndocforget = findViewById(R.id.btn_doc_forget);
         dbHelper = new MySQliteOpenHelper(this, "Docinfo.db",null,3);
         btndocreg.setOnClickListener(new View.OnClickListener() {
             @Override

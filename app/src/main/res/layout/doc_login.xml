@@ -39,13 +39,5 @@
         android:clickable="true"
         android:text="注册"
         android:layout_gravity="center"></Button>
-    <Button
-        android:id="@+id/btn_doc_forget"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:text="忘记密码"
-        android:layout_gravity="center"
-        ></Button>
 
 </LinearLayout>

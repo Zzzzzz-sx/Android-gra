@@ -23,7 +23,7 @@ import pl.com.salsoft.sqlitestudioremote.SQLiteStudioService;
 
 public class Register_pat extends AppCompatActivity {
     private PatSQliteOpenHelper dbHelper;
-    Button patregister;
+    Button patregister,backtologin;
     EditText registername,registerpw;
     @SuppressLint("MissingInflatedId")
     public void onCreate(@Nullable Bundle savedInstanceState){
@@ -34,6 +34,15 @@ public class Register_pat extends AppCompatActivity {
         registername = findViewById(R.id.et_reg_pat_name);
         registerpw = findViewById(R.id.et_reg_pat_password);
         patregister = findViewById(R.id.btn_pat_register);
+        backtologin = findViewById(R.id.btn_pat_reg_back_login);
+        backtologin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                Intent intent =new Intent(Register_pat.this,Login_pat.class);
+                startActivity(intent);
+            }
+        });
         dbHelper = new PatSQliteOpenHelper(this,"Patinfo.db",null,1);
         patregister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +70,7 @@ public class Register_pat extends AppCompatActivity {
                 else {
                     Toast.makeText(Register_pat.this,"用户名已存在！请重新注册！",Toast.LENGTH_SHORT).show();
                     finish();
-                    Intent intent =new Intent(Register_pat.this,Register_doc.class);
+                    Intent intent =new Intent(Register_pat.this,Register_pat.class);
                     startActivity(intent);
                 }
             }
