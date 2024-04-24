@@ -34,6 +34,7 @@ public class PatHomeFragment extends PatBaseFragment {
     private MySQliteOpenHelper dbHelper;
     NewsRecyclerAdapter newsAdapter;
     RecyclerView recyclerView;
+    boolean isdocter = false;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -41,7 +42,7 @@ public class PatHomeFragment extends PatBaseFragment {
         recyclerView = getActivity().findViewById(R.id.rv_pat_show_news);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        newsAdapter = new NewsRecyclerAdapter(news);
+        newsAdapter = new NewsRecyclerAdapter(news,isdocter);
         recyclerView.setAdapter(newsAdapter);
         DividerItemDecoration divider = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(new ColorDrawable(Color.BLACK));

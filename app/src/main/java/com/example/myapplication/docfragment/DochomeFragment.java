@@ -42,13 +42,14 @@ public class DochomeFragment extends DocBaseFragment {
     RecyclerView recyclerView;
     Button createnews;
 
+    boolean isdocter = true;
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         shownews();
         recyclerView = getActivity().findViewById(R.id.rv_show_news);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        newsAdapter = new NewsRecyclerAdapter(news);
+        newsAdapter = new NewsRecyclerAdapter(news,isdocter);
         recyclerView.setAdapter(newsAdapter);
         DividerItemDecoration divider = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
         divider.setDrawable(new ColorDrawable(Color.BLACK));

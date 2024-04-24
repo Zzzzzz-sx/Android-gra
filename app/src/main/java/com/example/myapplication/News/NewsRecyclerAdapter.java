@@ -16,9 +16,10 @@ import java.util.List;
 
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.MyViewHolder> {
     private List<News> mNews;
-
-    public NewsRecyclerAdapter(List<News> list) {
+    private boolean isdocter;
+    public NewsRecyclerAdapter(List<News> list,boolean isdocter) {
         this.mNews = list;
+        this.isdocter = isdocter;
     }
 
     //    public void HistoryRecAdapter(List<Historyproject> list){
@@ -30,7 +31,6 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_news,null);
         return new MyViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull NewsRecyclerAdapter.MyViewHolder holder, int position) {
         //绑定数据
@@ -40,13 +40,23 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent;
                 //跳转并且传值
-                Toast.makeText(view.getContext(),"跳转到news",Toast.LENGTH_SHORT).show();
-                Intent intent  = new Intent(view.getContext(), ShowNews.class);
-                intent.putExtra("title",news.getTitle());
-                intent.putExtra("content",news.getContent());
-                intent.putExtra("newsid",news.getId());
-                view.getContext().startActivity(intent);
+                if(isdocter){
+                    intent = new Intent(view.getContext(),EditNews.class);
+                    intent.putExtra("title",news.getTitle());
+                    intent.putExtra("content",news.getContent());
+                    intent.putExtra("newsid",news.getId());
+                    view.getContext().startActivity(intent);
+                }
+                else if (!isdocter){
+                    Toast.makeText(view.getContext(),"跳转到shownews",Toast.LENGTH_SHORT).show();
+                    intent = new Intent(view.getContext(),ShowNews.class);
+                    intent.putExtra("title",news.getTitle());
+                    intent.putExtra("content",news.getContent());
+                    intent.putExtra("newsid",news.getId());
+                    view.getContext().startActivity(intent);
+                }
             }
         });
     }
