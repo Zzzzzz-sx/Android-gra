@@ -41,7 +41,7 @@
         android:text="注册"
         android:layout_gravity="center"></Button>
     <Button
-        android:id="@+id/btn_doc_forget"
+        android:id="@+id/btn_pat_forget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"

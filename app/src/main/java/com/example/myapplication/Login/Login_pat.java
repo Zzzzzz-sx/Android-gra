@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.Forgetpw_pat;
 import com.example.myapplication.Pat_shouye;
 import com.example.myapplication.R;
 import com.example.myapplication.Register.Register_pat;
@@ -33,8 +34,18 @@ public class Login_pat extends AppCompatActivity {
         login_password = findViewById(R.id.et_login_pat_password);
         btnpatlogin = findViewById(R.id.btn_pat_login);
         btnpatreg = findViewById(R.id.btn_pat_to_reg);
-        btnpatforget = findViewById(R.id.btn_pat_forget);
         dbHelper = new PatSQliteOpenHelper(this, "Patinfo.db",null,1);
+        //患者忘记密码
+        btnpatforget = findViewById(R.id.btn_pat_forget);
+        btnpatforget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                //跳转到患者忘记密码界面
+                Intent intent = new Intent(Login_pat.this, Forgetpw_pat.class);
+                startActivity(intent);
+            }
+        });
         //患者登录按钮
         btnpatlogin.setOnClickListener(new View.OnClickListener() {
             @Override
