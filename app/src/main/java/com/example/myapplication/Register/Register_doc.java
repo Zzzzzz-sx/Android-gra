@@ -25,6 +25,7 @@ public class Register_doc extends AppCompatActivity {
     private MySQliteOpenHelper dbHelper;
     Button docregister,backtologin;
     EditText registername,registerpw;
+    boolean suc;
     @SuppressLint("MissingInflatedId")
     public void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -54,26 +55,32 @@ public class Register_doc extends AppCompatActivity {
                 ContentValues cv = new ContentValues();
                 cv.put("docname",name);
                 cv.put("docpw",password);
-                boolean suc = regsuc(name);
+
                 Log.d("Register_doc","show"+suc);
-                if(!suc){
-                    db.insert("docter",null,cv);
-                    Toast.makeText(Register_doc.this,"注册成功！",Toast.LENGTH_SHORT).show();
-                    finish();
-                    startActivity(new Intent(Register_doc.this, Login_doc.class));
-                }
-                else if(name==null||password==null){
+                if(name.length()==0||password.length()==0){
                     Toast.makeText(Register_doc.this,"用户名或密码为空，请重新输入",Toast.LENGTH_SHORT).show();
                     finish();
                     Intent intent =new Intent(Register_doc.this,Register_doc.class);
                     startActivity(intent);
                 }
                 else {
-                    Toast.makeText(Register_doc.this,"用户名已存在！请重新注册！",Toast.LENGTH_SHORT).show();
-                    finish();
-                    Intent intent =new Intent(Register_doc.this,Register_doc.class);
-                    startActivity(intent);
+                    suc = regsuc(name);
+                    if(!suc){
+                        db.insert("docter",null,cv);
+                        Toast.makeText(Register_doc.this,"注册成功！",Toast.LENGTH_SHORT).show();
+                        finish();
+                        startActivity(new Intent(Register_doc.this, Login_doc.class));
+                    }
+                    else if (suc){
+                        Toast.makeText(Register_doc.this,"用户名已存在！请重新注册！",Toast.LENGTH_SHORT).show();
+                        finish();
+                        Intent intent =new Intent(Register_doc.this,Register_doc.class);
+                        startActivity(intent);
+                    }
                 }
+
+
+
 
             }
         });

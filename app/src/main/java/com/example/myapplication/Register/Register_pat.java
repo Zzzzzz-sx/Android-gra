@@ -25,6 +25,7 @@ public class Register_pat extends AppCompatActivity {
     private PatSQliteOpenHelper dbHelper;
     Button patregister,backtologin;
     EditText registername,registerpw;
+    boolean suc;
     @SuppressLint("MissingInflatedId")
     public void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -53,26 +54,39 @@ public class Register_pat extends AppCompatActivity {
                 ContentValues cv = new ContentValues();
                 cv.put("pat_login_name",name);
                 cv.put("pat_login_pw",password);
-                boolean suc = regsuc(name);
                 Log.d("Register_pat","show"+suc);
-                if(!suc){
-                    db.insert("patient",null,cv);
-                    Toast.makeText(Register_pat.this,"注册成功！",Toast.LENGTH_SHORT).show();
-                    finish();
-                    startActivity(new Intent(Register_pat.this, Login_pat.class));
-                }
-                else if(name==null||password==null){
+                Log.d("Register_pat","show---"+name.length());
+                Log.d("Register_pat","show-------"+password.length());
+
+//                if(!suc){
+//                    db.insert("patient",null,cv);
+//                    Toast.makeText(Register_pat.this,"注册成功！",Toast.LENGTH_SHORT).show();
+//                    finish();
+//                    startActivity(new Intent(Register_pat.this, Login_pat.class));
+//                }
+                if(name.length()==0||password.length()==0){
                     Toast.makeText(Register_pat.this,"用户名或密码为空，请重新输入",Toast.LENGTH_SHORT).show();
                     finish();
                     Intent intent =new Intent(Register_pat.this,Register_pat.class);
                     startActivity(intent);
                 }
                 else {
-                    Toast.makeText(Register_pat.this,"用户名已存在！请重新注册！",Toast.LENGTH_SHORT).show();
-                    finish();
-                    Intent intent =new Intent(Register_pat.this,Register_pat.class);
-                    startActivity(intent);
+                    suc = regsuc(name);
+                    if (!suc){
+                        db.insert("patient",null,cv);
+                        Toast.makeText(Register_pat.this,"注册成功！",Toast.LENGTH_SHORT).show();
+                        finish();
+                        startActivity(new Intent(Register_pat.this, Login_pat.class));
+                    }
+                    else if (suc){
+                        Toast.makeText(Register_pat.this,"用户名已存在！请重新注册！",Toast.LENGTH_SHORT).show();
+                        finish();
+                        Intent intent =new Intent(Register_pat.this,Register_pat.class);
+                        startActivity(intent);
+                    }
                 }
+
+
             }
         });
     }
