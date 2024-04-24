@@ -4,46 +4,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Forgetpw.Forgetpw_pat"
+    tools:context=".Forgetpw_pat"
     >
 
     <EditText
-        android:id="@+id/"
+        android:id="@+id/et_pat_pwchange"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:hint=""
+        android:hint="请输入身份证号"
         android:inputType="text"
         android:ems="10"
         android:layout_gravity="center"
         android:textAlignment="center"></EditText>
 
     <EditText
-        android:id="@+id/"
+        android:id="@+id/et_pat_newpassword"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:ems="10"
-        android:hint=""
+        android:hint="请输入新密码"
         android:inputType="textPassword"
         android:textAlignment="center"></EditText>
     <EditText
-        android:id="@+id/"
+        android:id="@+id/et_pat_conpassword"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:ems="10"
-        android:hint=""
+        android:hint="请再次输入新密码"
         android:inputType="textPassword"
         android:textAlignment="center"></EditText>
     <Button
-        android:id="@+id/"
+        android:id="@+id/btn_pat_forgetpw_to_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:text="返回"
         android:layout_gravity="center"></Button>
     <Button
-        android:id="@+id/"
+        android:id="@+id/btn_pat_confirmchangepw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
