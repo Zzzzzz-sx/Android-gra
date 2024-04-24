@@ -17,17 +17,7 @@
         android:ems="10"
         android:layout_gravity="center"
         android:textAlignment="center" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            ></TextView>
         <EditText
-            android:layout_weight="0.78"
             android:id="@+id/et_login_pat_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,17 +26,6 @@
             android:ems="10"
             android:layout_gravity="center"
             android:textAlignment="center"></EditText>
-        <Button
-            android:id="@+id/btn_pat_forget"
-            android:layout_weight="0.75"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="patforget"
-            android:text="忘记密码"
-            ></Button>
-
-    </LinearLayout>
-
     <Button
         android:id="@+id/btn_pat_login"
         android:layout_width="wrap_content"
@@ -61,5 +40,12 @@
         android:onClick="logintoreg"
         android:text="注册"
         android:layout_gravity="center"></Button>
-
+    <Button
+        android:id="@+id/btn_doc_forget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:text="忘记密码"
+        android:layout_gravity="center"
+        ></Button>
 </LinearLayout>
