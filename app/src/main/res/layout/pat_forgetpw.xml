@@ -11,7 +11,7 @@
         android:id="@+id/et_pat_pwchange"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:hint="请输入身份证号"
+        android:hint="请输入手机号"
         android:inputType="text"
         android:ems="10"
         android:layout_gravity="center"
