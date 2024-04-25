@@ -260,6 +260,15 @@ public class DocCreateFragment extends DocBaseFragment implements View.OnClickLi
                 getage = Integer.parseInt(createage.getText().toString());
                 Log.d("DocCreateFragment",getpatname+getage+getsex+getdocname+getitemname+getchargesitu+strselectcreatedate);
                 Log.d("DocCreateFragment",strselectcreatedate);
+                if (getpatname.length()==0){
+                    Toast.makeText(getActivity(), "姓名为空！请重新输入", Toast.LENGTH_SHORT).show();
+                }
+                else if (createage.getText().toString().length()==0){
+                    Toast.makeText(getActivity(), "年龄为空！请重新输入", Toast.LENGTH_SHORT).show();
+                }
+                else if (getpersonalid.length() == 0) {
+                    Toast.makeText(getActivity(), "身份证号为空！请重新输入", Toast.LENGTH_SHORT).show();
+                }
                 createitemtable();
             }
         });
