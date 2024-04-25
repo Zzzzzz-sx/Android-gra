@@ -161,6 +161,10 @@ public class Doc_shouye extends AppCompatActivity implements View.OnClickListene
                 if(mdocSearchFragment == null){
                     mdocSearchFragment = new DocSearchFragment();
                     mfragmentTransaction.add(R.id.doc_content_layout,mdocSearchFragment);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("name",nameget);
+                    Log.d("Doc_shouye","shouye name"+nameget);
+                    mdocSearchFragment.setArguments(bundle);
                 }else{
                     mfragmentTransaction.show(mdocSearchFragment);
                 }

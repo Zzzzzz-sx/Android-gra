@@ -35,7 +35,7 @@ public class DocSearchFragment extends DocBaseFragment {
     private MySQliteOpenHelper dbHelper;
     HistoryRecycleAdapter historyAdapter;
     RecyclerView recyclerView;
-    String charge,knowsitu,searchcontent;
+    String charge,knowsitu,searchcontent,name;
     EditText et_search;
     Button btn_search;
     @Override
@@ -46,6 +46,8 @@ public class DocSearchFragment extends DocBaseFragment {
     }
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Bundle bundle = getArguments();
+        name = bundle.getString("name");
         //--------------------------展示历史项目
         showhistory();
         //recyclerview配置 布局管理 适配器
@@ -114,7 +116,7 @@ public class DocSearchFragment extends DocBaseFragment {
     private void showhistory(){
         dbHelper = new MySQliteOpenHelper(getActivity(),"Docinfo.db",null,3);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.query("Item",null,null,null,null,null,null);
+        Cursor cursor = db.query("Item",null,"doc = ?",new String[]{name},null,null,null);
         if(cursor.moveToFirst()){
             do {
                  Log.d("DocSearchFragment","cursor successful");
