@@ -38,6 +38,7 @@
         <activity android:name=".Doc_workcount" />
         <activity android:name="com.example.myapplication.Pat_resetpw" />
         <activity android:name="com.example.myapplication.Forgetpw_pat" />
+        <activity android:name="com.example.myapplication.Chat.ChatActivity" />
 
 
     </application>

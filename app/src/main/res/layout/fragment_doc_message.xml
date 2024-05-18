@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".docfragment.DocMessageFragment">
+    tools:context=".docfragment.DocMessageFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
+        android:layout_marginTop="5dp"
+        android:id="@+id/et_receiver_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_style"
+        android:hint="输入姓名进行搜索"
+        android:textAlignment="center"
+        ></EditText>
+    <Button
+        android:id="@+id/btn_receiver_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="搜索"
+        android:layout_gravity="center"
+        android:onClick="Item_search"></Button>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_doc_receiver"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="DocMessageFragment" />
+        >
+    </androidx.recyclerview.widget.RecyclerView>
 
-</FrameLayout>
+</LinearLayout>
