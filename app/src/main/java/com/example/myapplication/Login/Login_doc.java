@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +23,7 @@ import com.example.myapplication.SQliteOpenHelper.MySQliteOpenHelper;
 public class Login_doc extends AppCompatActivity {
     private MySQliteOpenHelper dbHelper;
     String name1;
+    int id;
     @SuppressLint("MissingInflatedId")
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,11 +51,14 @@ public class Login_doc extends AppCompatActivity {
                 boolean success = logsuc(logname,logpw,db);
                 if (success){
                     Toast.makeText(Login_doc.this,"登录成功！",Toast.LENGTH_SHORT).show();
+                    Log.d("Login_doc","id="+id);
+                    Log.d("Login_doc","name="+name1);
 //                    view.getContext().startActivity(new Intent(Login_doc.this,Doc_shouye.class));
 //                    DocMineFragment fragment = DocMineFragment.newInstance(logname);
                     finish();
                     Intent intent =new Intent(Login_doc.this, Doc_shouye.class);
                     intent.putExtra("name",name1);
+                    intent.putExtra("doctorid",id);
                     view.getContext().startActivity(intent);
 //                    startActivity(intent);
 
@@ -80,7 +85,8 @@ public class Login_doc extends AppCompatActivity {
                 String username1 = cursor.getString(cursor.getColumnIndexOrThrow("doc_login_name"));
                 String userpw1 = cursor.getString(cursor.getColumnIndexOrThrow("doc_login_pw"));
                 name1 = cursor.getString(cursor.getColumnIndexOrThrow("docter_name"));
-//                Log.d("Register_doc","username1="+username1);
+                id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
+
                 result = username1.equals(username)&&userpw1.equals(userpw);
 //                Log.d("Register_doc","equal="+result);
 //                Log.d("Register_doc","next="+cursor.moveToNext());

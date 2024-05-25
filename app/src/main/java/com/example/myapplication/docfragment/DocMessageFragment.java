@@ -1,6 +1,5 @@
 package com.example.myapplication.docfragment;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -8,20 +7,15 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
-import com.example.myapplication.HistoryItem.Historyproject;
 import com.example.myapplication.R;
-import com.example.myapplication.SQliteOpenHelper.MySQliteOpenHelper;
 import com.example.myapplication.SQliteOpenHelper.PatSQliteOpenHelper;
 
 import java.util.ArrayList;
@@ -31,8 +25,10 @@ import java.util.List;
 public class DocMessageFragment extends DocBaseFragment {
     private List<ContactPerson> contactList = new ArrayList<>();
     private PatSQliteOpenHelper dbHelper;
-    docContactAdapter docContactAdapter;
+    ContactAdapter docContactAdapter;
     RecyclerView recyclerView;
+    String doctorname,userType;
+    int doctorid;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,13 +38,16 @@ public class DocMessageFragment extends DocBaseFragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-
+        userType ="doctor";
+        Bundle bundle = getArguments();
+        doctorname = bundle.getString("name");
+        doctorid = bundle.getInt("doctorid");
         showperson();
         super.onActivityCreated(savedInstanceState);
         recyclerView = getActivity().findViewById(R.id.rv_doc_receiver);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        docContactAdapter = new docContactAdapter(contactList);
+        docContactAdapter = new ContactAdapter(contactList,doctorname,doctorid,userType);
         recyclerView.setAdapter(docContactAdapter);
         //recyclerview的分隔下划线设置
         DividerItemDecoration divider = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);

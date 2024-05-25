@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.Forgetpw_pat;
+import com.example.myapplication.Pat_Personalinfo;
 import com.example.myapplication.Pat_shouye;
 import com.example.myapplication.R;
 import com.example.myapplication.Register.Register_pat;
@@ -25,6 +26,11 @@ public class Login_pat extends AppCompatActivity {
     EditText login_name,login_password;
     Button btnpatlogin,btnpatreg,btnpatforget;
     String getpersonalid;
+    String getpatname;
+    int getpatid;
+    boolean everlogin;
+    String getpatphone;
+
     @SuppressLint("MissingInflatedId")
     public void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -57,16 +63,25 @@ public class Login_pat extends AppCompatActivity {
                 if (success){
                     Toast.makeText(Login_pat.this,"登录成功！",Toast.LENGTH_SHORT).show();
                     finish();
-                    //跳转到患者首页界面
-                    Intent intent = new Intent(Login_pat.this, Pat_shouye.class);
+                    if (everlogin){
+                        //跳转到患者首页界面
+                        Intent intent = new Intent(Login_pat.this, Pat_shouye.class);
 //                    startActivity(intent);
-                    //传出用户名
-                    intent.putExtra("login_name",logname);
-                    if (getpersonalid!=null){
+                        //传出用户名
+                        intent.putExtra("login_name",logname);
+                        intent.putExtra("patid",getpatid);
+                        intent.putExtra("patname",getpatname);
                         intent.putExtra("patpersonalid",getpersonalid);
-                        Log.d("Login_pat",getpersonalid);
+                        view.getContext().startActivity(intent);
                     }
-                    view.getContext().startActivity(intent);
+                    else{
+                        //跳转到患者首页界面
+                        Intent intent = new Intent(Login_pat.this, Pat_Personalinfo.class);
+                        //传出用户名
+                        intent.putExtra("login_name",logname);
+                        intent.putExtra("patid",getpatid);
+                        view.getContext().startActivity(intent);
+                    }
                 }
                 else{
                     Toast.makeText(Login_pat.this,"用户名或密码错误，请重新输入",Toast.LENGTH_SHORT).show();
@@ -92,8 +107,14 @@ public class Login_pat extends AppCompatActivity {
             do {
                 String username1 = cursor.getString(cursor.getColumnIndexOrThrow("pat_login_name"));
                 String userpw1 = cursor.getString(cursor.getColumnIndexOrThrow("pat_login_pw"));
+                getpatname = cursor.getString(cursor.getColumnIndexOrThrow("pat_name"));
+                getpatid = cursor.getInt(cursor.getColumnIndexOrThrow("id"+""));
                 getpersonalid = cursor.getString(cursor.getColumnIndexOrThrow("pat_personalid"));
+                getpatphone = cursor.getString(cursor.getColumnIndexOrThrow("pat_phonenum"));
                 result = username1.equals(logname)&&userpw1.equals(logpw);
+                if (getpatname.length()!=0 && getpersonalid.length()!=0&&getpatphone.length()!=0){
+                    everlogin = true;
+                }
                 if(result){
                     return result;
                 }

@@ -48,6 +48,7 @@ public class DocSearchFragment extends DocBaseFragment {
         super.onActivityCreated(savedInstanceState);
         Bundle bundle = getArguments();
         name = bundle.getString("name");
+        Log.d("DocSearchFragment","debug"+name);
         //--------------------------展示历史项目
         showhistory();
         //recyclerview配置 布局管理 适配器

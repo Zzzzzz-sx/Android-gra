@@ -15,12 +15,14 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.Login.Login_pat;
 import com.example.myapplication.SQliteOpenHelper.PatSQliteOpenHelper;
 
 public class Pat_Personalinfo extends AppCompatActivity {
     EditText inputname,inputid,inputphonenum;
     Button saveinfo;
     String setpatname,setpatpersonalid,setpatphonenum,getpatname,getpatpersonalid,getpatphonenum;
+    int getpatid;
     String loginname;
     private PatSQliteOpenHelper dbHelper;
     @SuppressLint("MissingInflatedId")
@@ -36,6 +38,7 @@ public class Pat_Personalinfo extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent != null){
             loginname = intent.getStringExtra("login_name");
+            getpatid = intent.getIntExtra("patid",0);
             Log.d("Pat_Personalinfo","登录用户名："+loginname);
         }
         getinfo();
@@ -95,7 +98,16 @@ public class Pat_Personalinfo extends AppCompatActivity {
         db.update("patient",Patinfo,"pat_login_name=?",new String[]{loginname});
         Toast.makeText(this,"保存成功！",Toast.LENGTH_SHORT).show();
         finish();
-        startActivity(new Intent(this, Pat_shouye.class));
+        //跳转到患者首页界面
+        Intent intent = new Intent(Pat_Personalinfo.this, Pat_shouye.class);
+//                    startActivity(intent);
+        //传出用户名
+        intent.putExtra("login_name",loginname);
+        intent.putExtra("patid",getpatid);
+        intent.putExtra("patname",setpatname);
+        intent.putExtra("patpersonalid",setpatpersonalid);
+        startActivity(intent);
+//        startActivity(new Intent(this, Pat_shouye.class));
     }
 
 }

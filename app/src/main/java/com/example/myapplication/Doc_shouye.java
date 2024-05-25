@@ -42,6 +42,7 @@ public class Doc_shouye extends AppCompatActivity implements View.OnClickListene
     private DochomeFragment mdochomeFragment;
     private FragmentManager mFragmentManager;
     String nameget;
+    int idget;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class Doc_shouye extends AppCompatActivity implements View.OnClickListene
         Intent intent = getIntent();
         if(intent != null){
             nameget = intent.getStringExtra("name");
+            idget = intent.getIntExtra("doctorid",0);
         }
         //初始化函数
         initview();
@@ -226,6 +228,10 @@ public class Doc_shouye extends AppCompatActivity implements View.OnClickListene
                 }
                 if(mdocMessageFragment == null){
                     mdocMessageFragment = new DocMessageFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("name",nameget);
+                    bundle.putInt("doctorid",idget);
+                    mdocMessageFragment.setArguments(bundle);
                     mfragmentTransaction.add(R.id.doc_content_layout,mdocMessageFragment);
                 }else{
                     mfragmentTransaction.show(mdocMessageFragment);

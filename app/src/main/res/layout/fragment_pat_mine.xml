@@ -15,11 +15,6 @@
         android:src="@mipmap/mine_docterpic"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"/>
-
-
-
-
-    <!-- 工作量统计 -->
     <TextView
         android:id="@+id/tv_pat_personalinfo"
         android:layout_width="match_parent"
@@ -37,18 +32,16 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
         android:layout_marginBottom="16dp"/>
-    <!-- 仪器参数设置 -->
     <TextView
-        android:id="@+id/tv_instrumentset"
+        android:id="@+id/tv_changepw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="仪器参数设置"
+        android:text="修改密码"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:textAlignment="center"
         android:gravity="center_horizontal"
         android:clickable="true"
-        android:onClick="InstrumentSettings"
         android:layout_marginBottom="10dp"/>
     <View
         android:layout_width="match_parent"
@@ -56,10 +49,10 @@
         android:background="@android:color/darker_gray"
         android:layout_marginBottom="16dp"/>
     <TextView
-        android:id="@+id/tv_changepw"
+        android:id="@+id/tv_to_melanoma"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="修改密码"
+        android:text="黑色素瘤普查"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:textAlignment="center"

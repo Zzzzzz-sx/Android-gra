@@ -18,7 +18,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".Login.Login_doc"
+            android:name=".Melanoma_test"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Doc_shouye"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".Login.Login_doc"/>
         <activity android:name=".Register.Register_doc"/>
         <activity android:name=".News.CreateNews"></activity>
         <activity android:name=".News.EditNews"></activity>
@@ -39,6 +39,8 @@
         <activity android:name="com.example.myapplication.Pat_resetpw" />
         <activity android:name="com.example.myapplication.Forgetpw_pat" />
         <activity android:name="com.example.myapplication.Chat.ChatActivity" />
+        <activity android:name=".MainActivity"></activity>
+
 
 
     </application>

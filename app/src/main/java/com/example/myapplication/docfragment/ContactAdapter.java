@@ -1,6 +1,5 @@
 package com.example.myapplication.docfragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,26 +10,25 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.Chat.ChatActivity;
-import com.example.myapplication.HistoryItem.HistoryRecycleAdapter;
-import com.example.myapplication.News.EditNews;
-import com.example.myapplication.News.News;
 import com.example.myapplication.R;
-import com.google.android.material.imageview.ShapeableImageView;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
-public class docContactAdapter extends RecyclerView.Adapter<docContactAdapter.MyViewHolder> {
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHolder> {
     List<ContactPerson> ContactArrayList;
-    public docContactAdapter(List<ContactPerson> list) {
+    String currentname;
+    int currentid;
+    String userType;
+    public ContactAdapter(List<ContactPerson> list, String name, int id,String userType) {
     this.ContactArrayList = list;
+    this.currentname = name;
+    this.currentid = id;
+    this.userType = userType;
     }
     @NonNull
     @Override
 
-    public docContactAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ContactAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_contactperson,null);
         return new MyViewHolder(view);
     }
@@ -45,6 +43,9 @@ public class docContactAdapter extends RecyclerView.Adapter<docContactAdapter.My
             public void onClick(View view) {
                 Intent intent;
                 intent = new Intent(view.getContext(), ChatActivity.class);
+                intent.putExtra("userType", userType);
+                intent.putExtra("currentname",currentname);
+                intent.putExtra("currentid",currentid);
                 intent.putExtra("contactid",contactperson.getPersonid());
                 intent.putExtra("contactname",contactperson.getPersonname());
                 view.getContext().startActivity(intent);
